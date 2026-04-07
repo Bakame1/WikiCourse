@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Course Multijoueur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-menu" class="screen active">
+        <h1>Wiki Course 🏁</h1>
+        <div class="menu-actions">
+            <button id="btn-create-room">Créer un salon</button>
+            <hr>
+            <input type="text" id="input-join-code" placeholder="Code à 4 chiffres" maxlength="4">
+            <button id="btn-join-room">Rejoindre</button>
+        </div>
+    </div>
+
+    <div id="lobby-screen" class="screen" style="display: none;">
+        <h2>Salon : <span id="room-code-display">----</span></h2>
+        <div class="game-setup">
+            <div class="input-container">
+                <label>Départ :</label>
+                <input type="text" id="input-start-page" placeholder="Article de départ" autocomplete="off">
+                <button id="btn-random-start">🎲</button>
+                <ul id="start-suggestions" class="custom-datalist"></ul>
+            </div>
+            
+            <div class="input-container">
+                <label>Arrivée :</label>
+                <input type="text" id="input-end-page" placeholder="Article d'arrivée" autocomplete="off">
+                <button id="btn-random-end">🎲</button>
+                <ul id="end-suggestions" class="custom-datalist"></ul>
+            </div>
+        </div>
+        <h3>Joueurs présents : <span id="player-count">1</span></h3>
+        <ul id="player-list" class="player-list"></ul>
+        <button id="btn-start-game" disabled>Lancer la partie</button>
+    </div>
+
+    <div id="game-screen" class="screen" style="display: none;">
+        <div class="hud">
+            <div class="hud-info">
+                <p>Objectif : <strong id="target-page">...</strong></p>
+                <p>Clics : <strong id="click-count">0</strong></p>
+            </div>
+            <button id="btn-surrender" class="btn-danger">SURREND 0/1</button>
+        </div>
+        <div id="wiki-content">
+            </div>
+    </div>
+
+    <div id="result-screen" class="screen" style="display: none;">
+        <h1>🏁 Fin de la course !</h1>
+        <div id="results-container">
+            </div>
+        <button id="btn-back-to-lobby">Retour au salon</button>
+    </div>
+
+    <div id="pseudo-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>Quel est ton pseudo ? 👤</h2>
+            <input type="text" id="input-pseudo" placeholder="Ton pseudo..." maxlength="15" autocomplete="off">
+            <button id="btn-validate-pseudo">Valider</button>
+            <button id="btn-cancel-pseudo" class="btn-secondary">Annuler</button>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
